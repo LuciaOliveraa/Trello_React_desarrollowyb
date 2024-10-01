@@ -1,0 +1,7 @@
+.column {
+    background-color: antiquewhite;
+    min-height: 300px;
+    min-width: 220px;
+    margin: 5px;
+    border-radius: 15px;
+}
