@@ -26,6 +26,33 @@
       "estado": "In progress",
       "prioridad": "Baja",
       "fecha": "2024-10-03"
+    },
+    {
+      "id": "5618",
+      "titulo": "",
+      "descripcion": "",
+      "asignado": "Persona",
+      "estado": "Backlog",
+      "prioridad": "Alta",
+      "fecha": ""
+    },
+    {
+      "id": "fd08",
+      "titulo": "holaaa",
+      "descripcion": "",
+      "asignado": "Persona",
+      "estado": "Backlog",
+      "prioridad": "Alta",
+      "fecha": ""
+    },
+    {
+      "id": "d9b2",
+      "titulo": "kj ",
+      "descripcion": "",
+      "asignado": "Persona",
+      "estado": "Backlog",
+      "prioridad": "Alta",
+      "fecha": ""
     }
   ]
 }

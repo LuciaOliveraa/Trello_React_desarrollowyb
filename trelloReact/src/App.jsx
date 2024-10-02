@@ -9,6 +9,7 @@ import { Modal } from './components/Modal'
 
 function App() {
 
+  // Loading tasks.
   const [tasks, setTasks] = useState([]);
 
   async function fetchTasks() {
@@ -26,6 +27,7 @@ function App() {
       fetchTasks();
     }, [])
 
+  // Managing create task modal
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -35,6 +37,8 @@ function App() {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
+  
 
   return (
     <>

@@ -4,7 +4,7 @@ import classes from "./Card.module.css"
 export function Card({ titulo, descripcion, prioridad, asignado, fecha, estado }) {
 
     return (
-        <div className={`${classes.Card} card`}>
+        <div className={`${classes.Card} card` }>
             <header className="header">
                 <span> { prioridad } </span>
                 <p className="title"> { titulo }</p>
