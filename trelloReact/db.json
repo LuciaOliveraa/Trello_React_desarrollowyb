@@ -37,22 +37,13 @@
       "fecha": ""
     },
     {
-      "id": "fd08",
-      "titulo": "holaaa",
+      "titulo": "hola",
       "descripcion": "",
+      "prioridad": "Alta",
+      "fecha": "",
       "asignado": "Persona",
       "estado": "Backlog",
-      "prioridad": "Alta",
-      "fecha": ""
-    },
-    {
-      "id": "d9b2",
-      "titulo": "kj ",
-      "descripcion": "",
-      "asignado": "Persona",
-      "estado": "Backlog",
-      "prioridad": "Alta",
-      "fecha": ""
+      "id": "1893"
     }
   ]
 }

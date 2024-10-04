@@ -1,10 +1,22 @@
-import React from "react";
+import React, {useState} from "react";
 import classes from "./Card.module.css"
+import { Modal2 } from "../Modal2"
 
-export function Card({ titulo, descripcion, prioridad, asignado, fecha, estado }) {
+export function Card({ id, titulo, descripcion, prioridad, asignado, fecha, estado }) {
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
 
     return (
-        <div className={`${classes.Card} card` }>
+        <>
+        <div className={`${classes.Card} card`} onClick={openModal} >
             <header className="header">
                 <span> { prioridad } </span>
                 <p className="title"> { titulo }</p>
@@ -19,5 +31,17 @@ export function Card({ titulo, descripcion, prioridad, asignado, fecha, estado }
                 <span className="card-footer-item"> { fecha } </span>
             </footer>
         </div>
+
+        <Modal2 isActive={isModalOpen} onClose={closeModal} 
+            Id={id}
+            Titulo={titulo} 
+            Descripcion={descripcion}
+            Prioridad={prioridad}
+            Asignado={asignado}
+            Fecha={fecha}
+            Estado={estado}
+            ></Modal2>
+        </>
+        
     );
 }

@@ -1,40 +1,53 @@
 import React, {useState} from "react";
 import { Button } from "../Button";
-import db from "../../../db.json";
 
-export function Modal({ isActive, onClose }) {
-    const [titulo, setTitulo] = useState("");
-    const [descripcion, setDescripcion] = useState("");
-    const [prioridad, setPrioridad] = useState("Alta");
-    const [fecha, setFecha] = useState("");
-    const [asignado, setAsignado] = useState("Persona");
-    const [estado, setEstado] = useState("Backlog");
+export function Modal2({ isActive, onClose, Id, Titulo, Descripcion, Prioridad, Fecha, Asignado, Estado }) {
+    const [titulo, setTitulo] = useState(Titulo);
+    const [descripcion, setDescripcion] = useState(Descripcion);
+    const [prioridad, setPrioridad] = useState(Prioridad);
+    const [fecha, setFecha] = useState(Fecha);
+    const [asignado, setAsignado] = useState(Asignado);
+    const [estado, setEstado] = useState(Estado);
 
-    function createTask() {
-        console.log("hola estoy creando tarea")
-        return { "titulo": titulo,
-                    "descripcion": descripcion,
-                    "asignado": asignado,
-                    "estado": estado,
-                    "prioridad": prioridad,
-                    "fecha": fecha
-                };
-    }
+    async function updateTask() {
+        const task = {
+            titulo: titulo,
+            descripcion: descripcion,
+            prioridad: prioridad,
+            fecha: fecha,
+            asignado: asignado,
+            estado: estado
+        }
 
-    async function postTask() {
-        let task = createTask();
         try {
-            const url = "http://localhost:3000/tasks"
+            const url = `http://localhost:3000/tasks/${Id}`
             const response = await fetch(url, { 
-              method: "POST",
-              body: JSON.stringify(task) });
+              method: "PUT",
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(task)
+            });
+      
             const data = await response.json(); // extract JSON from response
-            //loadTareas(data);
+            onClose();
           } catch (error) {
             console.log("Error fetching data: ", error);
           }
-        onClose();
     }
+
+    async function deleteTask() {
+        try {
+          const url = `http://localhost:3000/tasks/${Id}`
+          const response = await fetch(url, { 
+            method: "DELETE",
+            body: JSON.stringify()
+          });
+
+          const data = await response.json(); // extract JSON from response
+          onClose();
+        } catch (error) {
+          console.log("Error fetching data: ", error);
+        }
+      }
     
     return (
         <>
@@ -124,7 +137,8 @@ export function Modal({ isActive, onClose }) {
 
                 {/* Botones */}
                 <div className="buttons-container">
-                    <Button buttonType={"Aceptar"} onClick={postTask} label={"Aceptar"}></Button>
+                    <Button buttonType={"Actualizar"} onClick={updateTask} label={"Actualizar"}></Button>
+                    <Button buttonType={"Eliminar"} onClick={deleteTask} label={"Eliminar"}></Button>
                     <Button buttonType={"Cancelar"} onClick={onClose} label={"Cancelar"} ></Button>
                 </div>
             </div>

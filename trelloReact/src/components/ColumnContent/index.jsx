@@ -8,6 +8,7 @@ export function ColumnContent({ title, tasks }) {
             <label> {title} </label>
             <ul> {tasks.map((task) => (
                 <li><Card 
+                id={task.id}
                 titulo={task.titulo}
                 descripcion={task.descripcion}
                 prioridad={task.prioridad}
